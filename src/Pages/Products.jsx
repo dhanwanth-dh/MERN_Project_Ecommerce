@@ -1,32 +1,51 @@
 import React from 'react';
-import { Carousel } from 'antd';
-const contentStyle = {
-    margin: 0,
-    color: "#fff",
-    height: '350px',
+import image from '../assets/Logo.png'
+import { FaBowlRice } from "react-icons/fa6";
+import { LuWheat } from "react-icons/lu";
+import { BiCookie } from "react-icons/bi";
+import { GiSoap, GiChocolateBar, GiPowder } from "react-icons/gi";
+import { RiOilFill, RiDrinks2Fill, RiAccountPinBoxFill } from "react-icons/ri";
+import { MdFoodBank } from "react-icons/md";
+import { Pagination } from 'antd';
+import { FaSearch } from "react-icons/fa";
 
-    lineHeight: '250px',
-    textAlign: 'center',
-    background: '#364d79',
+const Products = () => {
+    return (
+        <>
+            <div className='flex flex-row gap-2 h-screen w-screen bg-amber-700 p-3'>
+                <div className='flex flex-col items-center h-[99%] w-60 bg-amber-50 rounded-md p-0'>
+                    <div className='flex items-center justify-center w-full h-15 transition-discrete duration-[2s] hover:scale-110'>
+                        <img src={image} alt="" className='h-10 w-10' />
+                        <h1 className='text-2xl font-ig text-shadow-lg'>Angaadi</h1>
+                    </div>
+                    <p className='pt-0'>-----------------------------------</p>
+                    <div className='flex-1 w-[99%] pl-1 pt-10'>
+                        <ul className='flex flex-col gap-2'>
+                            <button className='flex items-center pl-20 border-2 w-[99%]'><FaBowlRice />Rice</button>
+                            <button className='flex items-center pl-20 border-2 w-[99%]'><LuWheat />Wheat</button>
+                            <button className='flex items-center pl-20 border-2 w-[99%]'><BiCookie />Biscuit</button>
+                            <button className='flex items-center pl-20 border-2 w-[99%]'><GiSoap />Soap</button>
+                            <button className='flex items-center pl-20 border-2 w-[99%]'><GiChocolateBar />Chocolates</button>
+                            <button className='flex items-center pl-20 border-2 w-[99%]'><RiOilFill />Oil</button>
+                            <button className='flex items-center pl-20 border-2 w-[99%]'><GiPowder />Masala</button>
+                            <button className='flex items-center pl-20 border-2 w-[99%]'><RiDrinks2Fill />Drinks</button>
+                            <button className='flex items-center pl-20 border-2 w-[99%]'><MdFoodBank />Other</button>
+                        </ul>
+                    </div>
+                    <div className='w-[99%] pl-1 pb-2'>
+                        <button className='flex items-center pl-20 border-2 w-[99%]'><RiAccountPinBoxFill />Account</button>
+                    </div>
+                </div>
+                <div className='flex flex-col gap-2 w-[90%] h-[99%]'>
+                    <div className='flex gap-2 items-center justify-center h-20 w-full bg-amber-50 rounded-md'>
+                        <input type="text" className='bg-white border-2 rounded-2xl w-[80%] h-15 px-3 py-1.5 font-form text-2xl' />
+                        <button className='flex items-center justify-center border-2 h-15 rounded-2xl bg-white w-30'><FaSearch /></button>
+                    </div>
+                    <div className='relative flex-1 w-full bg-amber-50 rounded-md '>
+                        <Pagination defaultCurrent={1} total={50} className='absolute bottom-2 right-125 ' />
+                    </div>
+                </div>
+            </div>
+        </>)
 };
-const Products = () => (
-    <>
-        <div className='pl-25 w-190 p-5'>
-            <Carousel arrows infinite={false} style={contentStyle} className='rounded-4xl'>
-                <div style={contentStyle}>
-                    <img src="https://www.bigbasket.com/media/uploads/flatpages/mailer-images-aug/30006887_100225_2.jpg" alt="" className='p-7' />
-                </div>
-                <div className='rounded-4xl'>
-                    <img src="https://www.bigbasket.com/media/uploads/flatpages/mailer-images-aug/30006887_100225_2.jpg" alt="" className='p-7' />
-                </div>
-                <div>
-                    {/* <h3 style={contentStyle}>3</h3> */}
-                </div>
-                <div>
-                    {/* <h3 style={contentStyle}>4</h3> */}
-                </div>
-            </Carousel>
-        </div>
-    </>
-);
 export default Products;

@@ -11,18 +11,18 @@ const Signup = () => {
                     <h1 className='pl-7 text-2xl italic font-form text-shadow-lg transition-discrete duration-[2s] hover:scale-110'>Grocery at &nbsp;&nbsp; your door step</h1>
                     {/* <img className='absolute bottom-0 h-[50%] w-[80%]' src={image} alt="" /> */}
                 </div>
-                <div className='bg-amber-50 h-[75%] w-[80%] shadow-xl/100'>
+                <div className='bg-amber-50 h-[75%] w-[80%] shadow-xl/100 font-form'>
                     <div className='pt-5'>
                         <img alt="SPS" src={image2} className="mx-auto h-10 w-auto" />
                     </div>
                     <div className='flex justify-between pl-5 pr-5 pt-10'>
                         <div>
                             <h1>First Name</h1>
-                            <input type="text" placeholder='Enter your first name' className="w-90 rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-orange-600 sm:text-sm/6" />
+                            <input required type="text" placeholder='Enter your first name' className="w-90 rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-orange-600 sm:text-sm/6" />
                         </div>
                         <div>
                             <h1>Last Name</h1>
-                            <input type="text" placeholder='Enter your last name' className="w-90 rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-orange-600 sm:text-sm/6" />
+                            <input required type="text" placeholder='Enter your last name' className="w-90 rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-orange-600 sm:text-sm/6" />
                         </div>
                         <div>
                             <h1>Shop Name(Optional)</h1>
@@ -32,27 +32,27 @@ const Signup = () => {
                     <div className='w-full pl-5 pr-5 pt-10'>
                         <h1>Address</h1>
                         <div className='w-full'>
-                            <input type="text" placeholder='Door No.' className="w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-orange-600 sm:text-sm/6" />
+                            <input required type="text" placeholder='Door No.' className="w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-orange-600 sm:text-sm/6" />
                         </div>
                         <div className='pt-2 w-full'>
-                            <input type="text" placeholder='Street' className="w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-orange-600 sm:text-sm/6" />
+                            <input required type="text" placeholder='Street' className="w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-orange-600 sm:text-sm/6" />
                         </div>
                         <div className='pt-2 w-full'>
-                            <input type="text" placeholder='City' className="w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-orange-600 sm:text-sm/6" />
+                            <input required type="text" placeholder='City' className="w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-orange-600 sm:text-sm/6" />
                         </div>
                     </div>
                     <div className='flex justify-between pl-5 pr-5 pt-10'>
                         <div>
                             <h1>Username</h1>
-                            <input type="text" placeholder='Username' className="w-90 rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-orange-600 sm:text-sm/6" />
+                            <input required type="text" placeholder='Username' className="w-90 rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-orange-600 sm:text-sm/6" />
                         </div>
                         <div>
                             <h1>Password</h1>
-                            <input type="text" placeholder='Password' className="w-90 rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-orange-600 sm:text-sm/6" />
+                            <input required type="text" placeholder='Password' className="w-90 rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-orange-600 sm:text-sm/6" />
                         </div>
                         <div>
                             <h1>Confirm password</h1>
-                            <input type="text" placeholder='Confirm password' className="w-90 rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-orange-600 sm:text-sm/6" />
+                            <input required type="text" placeholder='Confirm password' className="w-90 rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-orange-600 sm:text-sm/6" />
                         </div>
                     </div>
                     <div className='flex justify-between items-center pl-5 pr-5 pt-10'>

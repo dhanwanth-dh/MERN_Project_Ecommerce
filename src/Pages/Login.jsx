@@ -1,6 +1,8 @@
 import React from 'react'
 import image from '../assets/Cart-1-removebg-preview-2.png'
 import image2 from '../assets/Logo.png'
+import { Link } from 'react-router-dom'
+
 const Login = () => {
     return (
         <div className='flex h-screen w-screen bg-amber-700 z-[-1]'>
@@ -10,7 +12,7 @@ const Login = () => {
                 <h1 className='absolute top-[38%] left-[22%] text-2xl italic font-form text-shadow-lg transition-discrete duration-[2s] hover:scale-110'>Grocery at your door step</h1>
                 <img className='absolute bottom-0 h-[50%] w-[80%]' src={image} alt="" />
             </div>
-            <div className='bg-amber-50 h-screen w-[50%] rounded-bl-4xl rounded-tl-4xl shadow-xl/100'>
+            <div className='bg-amber-50 h-screen w-[50%] rounded-bl-4xl rounded-tl-4xl shadow-xl/100 font-form'>
                 <div className="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
                     <div className="sm:mx-auto sm:w-full sm:max-w-sm">
                         <img
@@ -76,9 +78,9 @@ const Login = () => {
 
                         <p className="mt-10 text-center text-sm/6 text-gray-500">
                             Not a member?{' '}
-                            <a href="#" className="font-semibold text-orange-700 hover:text-orange-900">
+                            <Link to="/signup" className="font-semibold text-orange-700 hover:text-orange-900">
                                 Sign Up
-                            </a>
+                            </Link>
                         </p>
                     </div>
                 </div>

@@ -13,15 +13,41 @@ import Settings from './Pages/Settings.jsx'
 import Login from './Pages/Login.jsx'
 import Signup from './Pages/Signup.jsx'
 
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom'
+
+const Layout = () => {
+    const location = useLocation();
+    const hide = ['/login', '/signup', '/products']
+
+    const hideLayout = hide.includes(location.pathname)
+    return (
+        <>
+            {!hideLayout && <Navbar />}
+            <Routes>
+                <Route path='/' element={<Dashboard />} />
+                <Route path='/products' element={<Products />} />
+                <Route path='/delivery' element={<Delivery />} />
+                <Route path='/deals' element={<Deals />} />
+                <Route path='/about' element={<About />} />
+                <Route path='/help' element={<Help />} />
+                <Route path='/settings' element={<Settings />} />
+                <Route path='/login' element={<Login />} />
+                <Route path='/signup' element={<Signup />} />
+            </Routes>
+        </>
+    )
+}
+
 const App = () => {
     return (
         <>
 
             {/* <Navbar></Navbar>
             <Dashboard></Dashboard>
-            <Products></Products> 
-            <Login></Login>*/}
+            <Signup></Signup>
+            <Login></Login>
+            <Products></Products>
+            */}
 
             {/* <Router>
                 <div>
@@ -35,10 +61,12 @@ const App = () => {
                     <Route path='/about' element={<About />} />
                     <Route path='/help' element={<Help />} />
                     <Route path='/settings' element={<Settings />} />
-                    <Route path='/profile' element={<Profile />} />
+                    <Route path='/login' element={<Login />} />
                 </Routes>
             </Router> */}
-            <Signup></Signup>
+            <Router>
+                <Layout />
+            </Router>
         </>
     )
 }

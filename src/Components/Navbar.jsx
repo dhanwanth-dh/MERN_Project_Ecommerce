@@ -5,26 +5,26 @@ import { Link } from 'react-router-dom'
 
 const Navbar = () => {
     return (
-        <div>
-            <div className="h-screen w-20 bg-red-400 flex flex-col justify-between items-center box-decoration-slice bg-linear-to-r from-amber-800 to-yellow-600 fixed z-50">
+        <div className=''>
+            <div className="h-screen w-25 bg-red-400 flex flex-col justify-between items-center box-decoration-slice bg-linear-to-r from-amber-800 to-yellow-600 fixed z-50">
                 <div className="h-10 w-20 pt-10 ">
                     <img src={image} alt="" />
                 </div>
                 <div className='flex flex-col justify-between gap-8 text-black'>
                     <Link to='/'>
-                        <h1><i class='bx bxs-store'></i></h1>
+                        <h1><i className='bx bxs-store'></i></h1>
                     </Link>
 
                     <Link to="/products">
-                        <h1><i class='bx bx-baguette'></i></h1>
+                        <h1><i className='bx bx-baguette'></i></h1>
                     </Link>
 
                     <Link to="/delivery">
-                        <h1><i class='bx bxs-truck' ></i></h1>
+                        <h1><i className='bx bxs-truck' ></i></h1>
                     </Link>
 
                     <Link to="/deals">
-                        <h1><i class='bx bxs-offer' ></i></h1>
+                        <h1><i className='bx bxs-offer' ></i></h1>
                     </Link>
 
                     <Link to="/about">
@@ -34,16 +34,16 @@ const Navbar = () => {
                     </Link>
 
                     <Link to="/help">
-                        <h1><i class='bx bx-help-circle'></i></h1>
+                        <h1><i className='bx bx-help-circle'></i></h1>
                     </Link>
                 </div>
                 <div className="flex flex-col gap-4">
                     <Link to="/settings">
-                        <h1><i class='bx bx-cog' ></i></h1>
+                        <h1><i className='bx bx-cog' ></i></h1>
                     </Link>
 
-                    <Link to="/profile">
-                        <h1><i class='bx bxs-user-account' ></i></h1>
+                    <Link to="/login">
+                        <h1><i className='bx bxs-user-account' ></i></h1>
                     </Link>
                 </div>
             </div>
