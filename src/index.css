@@ -1,0 +1,19 @@
+@import "tailwindcss";
+
+/* body {
+    background-image: url("https://static.vecteezy.com/system/resources/previews/053/133/981/non_2x/a-shopping-cart-filled-with-groceries-set-against-a-transparent-background-showcasing-essential-household-items-a-full-shopping-cart-transparent-background-free-png.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-attachment: fixed;
+    background-position-x: 50px;
+    background-color: rgb(215, 157, 30);
+    z-index: -1;
+} */
+
+@theme {
+    /* Doubt : @theme import working in index.css but not working in Dash.css */
+    --font-dot: "Bitcount Prop Single", system-ui;
+    --text-10xl: 6.75rem;
+    --font-ig: "Playwrite NO", system-ui;
+    --font-form: "Science Gothic", system-ui;
+}
