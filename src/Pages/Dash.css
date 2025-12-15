@@ -11,5 +11,15 @@
 }
 
 .title:hover {
-    transform: scale(1.05);
+    letter-spacing: 0.5rem;
+    /* transform: scale(-1.05); */
+}
+
+.back {
+    height: 100vh;
+    width: 100vw;
+    object-fit: contain;
+    position: fixed;
+    z-index: -10;
+    background-image: -webkit-linear-gradient(rgb(229, 176, 16), rgb(208, 119, 17));
 }
