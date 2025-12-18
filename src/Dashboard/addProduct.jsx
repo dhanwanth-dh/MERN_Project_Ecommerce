@@ -20,7 +20,7 @@ const Addproducts = () => {
 
             })
             setStatus(true)
-            setTimeout(() => navigate("/admindashboard"), 3000);
+            setTimeout(() => navigate("/adminDashboard"), 3000);
         } catch (err) {
             console.error(err);
         }
