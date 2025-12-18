@@ -1,5 +1,5 @@
 import React from 'react'
-import img1 from '../assets/logo.png'
+import img1 from '../assets/Logo.png'
 import Particles from './Particles';
 // Navbar should change color when it comes to this page
 const About = () => {
