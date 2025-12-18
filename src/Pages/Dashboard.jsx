@@ -1,12 +1,7 @@
 import React from 'react'
 import '../Pages/Dash.css'
-import image from '../assets/Cart-1.jpg'
 import Threads from './Threads'
-import prodimage from '../assets/Products-Dash.png'
-import dealsimage from '../assets/deals-Dash.png'
-import aboutimg from '../assets/About-dash.png'
-import cust from '../assets/cust-dash.jpg'
-import sign from '../assets/sign-dash.png'
+
 
 const Dashboard = () => {
     return (
