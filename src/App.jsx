@@ -21,7 +21,7 @@ const Layout = () => {
     const textColor = ['/about']
 
     const hideLayout = hide.includes(location.pathname)
-    const navbarColor = location.pathname === "/about" ? "text-pink-500" : "text-black-500";
+    const navbarColor = location.pathname === "/about" ? "text-white" : "text-black-500";
     return (
         <>
             {!hideLayout && <Navbar col={navbarColor} />}
