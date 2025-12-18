@@ -12,3 +12,23 @@ import img10 from "./img10.png";
 const Gallery = [img1, img2, img3, img4, img5, img6, img7, img8, img9, img10];
 
 export default Gallery;
+
+
+// import React, { useState } from "react";
+// import axios from "axios";
+
+// const [Gallery, setGallery] = useState([])
+
+// const imageArray = async () => {
+//     try {
+//         await axios.get("http://localhost:5000/csbs/getproducts")
+//             .then((response) => {
+//                 setTodoArray(response.data)
+//             })
+//             .catch((err) => {
+//                 console.error(err);
+//             })
+//     }
+// }
+
+// export default Gallery;

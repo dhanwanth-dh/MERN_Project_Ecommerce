@@ -1,10 +1,39 @@
-import React from 'react'
+import React, { useState } from 'react'
 import image from '../assets/Cart-1-removebg-preview-2.png'
 import image2 from '../assets/Logo.png'
+import axios from 'axios'
+import { useNavigate } from 'react-router-dom'
 const Signup = () => {
+
+    const navigate = useNavigate()
+
+    const [firstname, setFirstname] = useState('')
+    const [lastname, setLastname] = useState('')
+    const [shopname, setShopname] = useState('')
+    const [address1, setAddress1] = useState('')
+    const [address2, setAddress2] = useState('')
+    const [address3, setAddress3] = useState('')
+    const [phone, setPhone] = useState('')
+    const [email, setEmail] = useState('')
+    const [username, setUsername] = useState('')
+    const [password, setPassword] = useState('')
+    const [confirmpassword, setConfirmpassword] = useState('')
+    const address = address1 + "\n" + address2 + "\n" + address3
+
+    const signup = async () => {
+        if (password != confirmpassword) console.log("Password doesn't match")
+        try {
+            const res = await axios.post('http://localhost:5000/sps/signup', { firstname, lastname, shopname, address, phone, email, username, password })
+            setTimeout(() => navigate('/'))
+        } catch (err) {
+            console.error(err)
+        }
+    }
+
+
     return (
         <div className='h-screen w-screen bg-amber-700 z-[-1]'>
-            <div className='flex flex-col items-center w-[100%] h-screen'>
+            <div className='flex flex-col items-center w-full h-screen'>
                 <div className='pt-5 pb-5'>
                     <h1 className='text-8xl font-ig text-shadow-lg animate-pulse transition-discrete duration-[2s] hover:scale-110'>Angaadi</h1>
                     {/* <img className='absolute left-[35%] h-[20%]' src={image2} alt="" /> */}
@@ -19,58 +48,58 @@ const Signup = () => {
                         <div className='flex justify-between pl-5 pr-5 pt-10'>
                             <div>
                                 <h1>First Name</h1>
-                                <input required type="text" placeholder='Enter your first name' className="w-90 rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-orange-600 sm:text-sm/6" />
+                                <input onChange={(e) => setFirstname(e.target.value)} required type="text" placeholder='Enter your first name' className="w-90 rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-orange-600 sm:text-sm/6" />
                             </div>
                             <div>
                                 <h1>Last Name</h1>
-                                <input required type="text" placeholder='Enter your last name' className="w-90 rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-orange-600 sm:text-sm/6" />
+                                <input onChange={(e) => setLastname(e.target.value)} required type="text" placeholder='Enter your last name' className="w-90 rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-orange-600 sm:text-sm/6" />
                             </div>
                             <div>
                                 <h1>Shop Name(Optional)</h1>
-                                <input type="text" placeholder='Enter your shop name(optional)' className="w-90 rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-orange-600 sm:text-sm/6" />
+                                <input onChange={(e) => setShopname(e.target.value)} type="text" placeholder='Enter your shop name(optional)' className="w-90 rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-orange-600 sm:text-sm/6" />
                             </div>
                         </div>
                         <div className='flex justify-between'>
                             <div className='w-full pl-4 pr-5 pt-10'>
                                 <h1>Address</h1>
                                 <div className='w-90'>
-                                    <input required type="text" placeholder='Door No.' className="w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-orange-600 sm:text-sm/6" />
+                                    <input onChange={(e) => setAddress1(e.target.value)} required type="text" placeholder='Door No.' className="w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-orange-600 sm:text-sm/6" />
                                 </div>
                                 <div className='pt-2 w-90'>
-                                    <input required type="text" placeholder='Street' className="w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-orange-600 sm:text-sm/6" />
+                                    <input onChange={(e) => setAddress2(e.target.value)} required type="text" placeholder='Street' className="w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-orange-600 sm:text-sm/6" />
                                 </div>
                                 <div className='pt-2 w-90'>
-                                    <input required type="text" placeholder='City' className="w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-orange-600 sm:text-sm/6" />
+                                    <input onChange={(e) => setAddress3(e.target.value)} required type="text" placeholder='City' className="w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-orange-600 sm:text-sm/6" />
                                 </div>
                             </div>
                             <div className='pt-10 pr-5'>
                                 <div>
                                     <h1>Phone No.</h1>
-                                    <input type="text" placeholder='Enter your Phone no.' className="w-90 rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-orange-600 sm:text-sm/6" />
+                                    <input onChange={(e) => setPhone(e.target.value)} type="text" placeholder='Enter your Phone no.' className="w-90 rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-orange-600 sm:text-sm/6" />
                                 </div>
                                 <div className='pt-7'>
                                     <h1>Email</h1>
-                                    <input type="text" placeholder='Enter your email' className="w-90 rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-orange-600 sm:text-sm/6" />
+                                    <input onChange={(e) => setEmail(e.target.value)} type="text" placeholder='Enter your email' className="w-90 rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-orange-600 sm:text-sm/6" />
                                 </div>
                             </div>
                         </div>
                         <div className='flex justify-between pl-5 pr-5 pt-10'>
                             <div>
                                 <h1>Username</h1>
-                                <input required type="text" placeholder='Username' className="w-90 rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-orange-600 sm:text-sm/6" />
+                                <input onChange={(e) => setUsername(e.target.value)} required type="text" placeholder='Username' className="w-90 rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-orange-600 sm:text-sm/6" />
                             </div>
                             <div>
                                 <h1>Password</h1>
-                                <input required type="text" placeholder='Password' className="w-90 rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-orange-600 sm:text-sm/6" />
+                                <input onChange={(e) => setPassword(e.target.value)} required type="text" placeholder='Password' className="w-90 rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-orange-600 sm:text-sm/6" />
                             </div>
                             <div>
                                 <h1>Confirm password</h1>
-                                <input required type="text" placeholder='Confirm password' className="w-90 rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-orange-600 sm:text-sm/6" />
+                                <input onChange={(e) => setConfirmpassword(e.target.value)} required type="text" placeholder='Confirm password' className="w-90 rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-orange-600 sm:text-sm/6" />
                             </div>
                         </div>
                         <div className='flex justify-between items-center pl-5 pr-5 pt-10'>
                             <h1>Already have an account ?<a href="">Sign in</a></h1>
-                            <button className="flex w-90 justify-center rounded-md bg-orange-700 px-3 py-1.5 text-sm/6 font-semibold text-white shadow-xs hover:bg-orange-900 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-600">
+                            <button onClick={signup} className="flex w-90 justify-center rounded-md bg-orange-700 px-3 py-1.5 text-sm/6 font-semibold text-white shadow-xs hover:bg-orange-900 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-600">
                                 Sign up
                             </button>
                         </div>

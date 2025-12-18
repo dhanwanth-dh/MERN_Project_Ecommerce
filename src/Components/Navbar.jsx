@@ -1,70 +1,32 @@
-import React from 'react'
+import React, { useState } from 'react'
 import image from '../assets/Logo.png'
 import { Link } from 'react-router-dom'
-import { DownOutlined, UserOutlined } from '@ant-design/icons';
-import { Dropdown, Space, Input, AutoComplete, Flex } from 'antd';
+import { FaSearch } from "react-icons/fa";
 
-const Navbar = () => {
+const Navbar = ({ col }) => {
+    //Search bar:
+    const [visible, setVisible] = useState(false)
+    const search = () => {
+        if (visible == false) {
+            setVisible(true)
+            return;
+        } else {
+            setVisible(false)
+        }
 
+        alert("hiii")
+    }
 
-    const ddsearch = () => (
-        <div className="mt-15 bg-black/90 w-full backdrop-blur-md rounded-xl shadow-2xl">
-            <AutoComplete
-                classNames={{
-                    popup: {
-                        root: 'certain-category-search-dropdown',
-                    },
-                }}
-                popupMatchSelectWidth={900}
-                style={{ width: '60vw' }}
-                options={options}
-            >
-                <Input.Search
-                    size="large"
-                    placeholder="Search"
-                    className="rounded-lg"
-                />
-            </AutoComplete>
-        </div>
-    );
-
-    const Title = props => (
-        <Flex align="center" justify="space-between">
-            {props.title}
-            <a href="https://www.google.com/search?q=antd" target="_blank" rel="noopener noreferrer">
-                more
-            </a>
-        </Flex>
-    );
-    const renderItem = (title, count) => ({
-        value: title,
-        label: (
-            <Flex align="center" justify="space-between">
-                {title}
-                <span>
-                    <UserOutlined /> {count}
-                </span>
-            </Flex>
-        ),
-    });
-    const options = [
-        {
-            label: <Title title="Libraries" />,
-            options: [renderItem('AntDesign', 10000), renderItem('AntDesign UI', 10600)],
-        },
-        {
-            label: <Title title="Solutions" />,
-            options: [renderItem('AntDesign UI FAQ', 60100), renderItem('AntDesign FAQ', 30010)],
-        },
-        {
-            label: <Title title="Articles" />,
-            options: [renderItem('AntDesign design language', 100000)],
-        },
-    ];
     return (
-        <div className=''>
+        <div className={`${col}`}>
+            {visible && (
+                <div className='flex justify-around items-center' style={{ position: 'absolute', top: '65px', backgroundImage: "-webkit-linear-gradient(rgb(208, 119, 17),rgb(229, 176, 16)", height: "70px", width: "100%" }}>
+                    <input type="text" className='bg-gray-700 w-[90%] h-[60%] text-amber-50 font-form text-2xl p-5 border-amber-500 border-4 rounded-4xl' />
+                    <button className='bg' ><FaSearch /></button>
+                </div>
+            )}
             <div className="h-10 w-screen flex  gap-10 items-center box-decoration-slice  fixed z-50">
-                <div className='flex justify-between gap-10 text-black relative left-10'>
+                <div className={`flex justify-between gap-10 text-black relative left-10 ${col}`} >
                     <Link to="/products">
                         <h1>Shop</h1>
                     </Link>
@@ -99,14 +61,16 @@ const Navbar = () => {
                     </div>
                 </Link>
                 <div className="flex pr-5 gap-15 z-50 absolute right-10">
-                    <Dropdown trigger={['click']} popupRender={ddsearch}>
+                    {/* <Dropdown trigger={['click']} popupRender={ddsearch}>
                         <a onClick={e => e.preventDefault()}>
-                            <Space>
+                            <Space onClick={search}>
                                 Search
                                 <DownOutlined />
                             </Space>
                         </a>
-                    </Dropdown>
+                    </Dropdown> */}
+
+                    <button onClick={search}>Search</button>
                     <Link to="/login">
                         <h1>Account</h1>
                     </Link>

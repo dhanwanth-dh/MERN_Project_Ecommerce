@@ -8,8 +8,11 @@ import About from './Pages/About.jsx'
 import Profile from './Pages/Profile.jsx'
 import Login from './Pages/Login.jsx'
 import Signup from './Pages/Signup.jsx'
+import AdminDashboard from './Dashboard/adminDashboard.jsx'
+import Addproducts from './Dashboard/addProduct.jsx'
+import Addadmin from './Dashboard/addAdmin.jsx'
 
-import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom'
+import { BrowserRouter as Router, Routes, Route, useLocation, Link } from 'react-router-dom'
 import { Color } from 'ogl'
 
 const Layout = () => {
@@ -18,18 +21,27 @@ const Layout = () => {
     const textColor = ['/about']
 
     const hideLayout = hide.includes(location.pathname)
-    const hi = textColor.includes(location.pathname)
+    const navbarColor = location.pathname === "/about" ? "text-pink-500" : "text-black-500";
     return (
         <>
-            {!hideLayout && <Navbar />}
+            {!hideLayout && <Navbar col={navbarColor} />}
             <Routes>
                 <Route path='/' element={<Dashboard />} />
                 <Route path='/products' element={<Products />} />
+                <Route path='/profile' element={<Profile />} />
                 <Route path='/about' element={<About />} />
                 <Route path='/login' element={<Login />} />
                 <Route path='/signup' element={<Signup />} />
+                <Route path='/adminDashboard' element={<AdminDashboard />} />
+                <Route path='/addadmin' element={<Addadmin />} />
+                <Route path='/addproduct' element={<Addproducts />} />
             </Routes>
         </>
+        // <>
+        //     <Navbar></Navbar>
+        //     <AdminDashboard></AdminDashboard>
+        //     <Addproducts></Addproducts>
+        // </>
     )
 }
 
