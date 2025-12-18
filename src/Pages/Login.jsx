@@ -16,7 +16,7 @@ const Login = () => {
             return;
         }
         try {
-            const res = await axios.post("http://localhost:5000/sps/login", { email, password });
+            const res = await axios.post("https://angaadi-server.onrender.com/sps/login", { email, password });
             // localStorage.setItem("token", res.data.jwt);
             if (res.data.role == "admin") navigate("/adminDashboard")
             if (res.data.role == "public") navigate("/")

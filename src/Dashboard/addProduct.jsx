@@ -12,7 +12,7 @@ const Addproducts = () => {
     const [status, setStatus] = useState(false)
     const postProduct = async () => {
         try {
-            await axios.post("http://localhost:5000/sps/addproducts", {
+            await axios.post("https://angaadi-server.onrender.com/sps/addproducts", {
                 imag: productimg,
                 name: productname,
                 rating: productrate,

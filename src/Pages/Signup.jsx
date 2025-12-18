@@ -23,7 +23,7 @@ const Signup = () => {
     const signup = async () => {
         if (password != confirmpassword) console.log("Password doesn't match")
         try {
-            const res = await axios.post('http://localhost:5000/sps/signup', { firstname, lastname, shopname, address, phone, email, username, password })
+            const res = await axios.post('https://angaadi-server.onrender.com/sps/signup', { firstname, lastname, shopname, address, phone, email, username, password })
             setTimeout(() => navigate('/'))
         } catch (err) {
             console.error(err)
