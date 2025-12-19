@@ -1,7 +1,8 @@
-import { useEffect, useMemo, useRef, useCallback } from 'react';
 import { useGesture } from '@use-gesture/react';
 import Gallery from "../products";
 import axios from 'axios'
+import { useEffect, useMemo, useRef, useCallback, useState } from 'react';
+
 
 const DEFAULT_IMAGES = Gallery.map((img) => ({
     src: img,
@@ -123,6 +124,31 @@ export default function DomeGallery({
     const openStartedAtRef = useRef(0);
     const lastDragEndAt = useRef(0);
 
+    const [apiImages, setApiImages] = useState([]);
+    useEffect(() => {
+    const fetchImages = async () => {
+        try {
+            const res = await axios.get(
+                "https://angaadi-server.onrender.com/sps/getproducts"
+            );
+
+            // 🔥 map backend "imag" → dome "src"
+            const mapped = res.data
+                .filter(p => p.imag)
+                .map(p => ({
+                    src: p.imag,
+                    alt: p.name || "Product image"
+                }));
+
+            setApiImages(mapped);
+        } catch (err) {
+            console.error("Image fetch error:", err);
+        }
+    };
+
+    fetchImages();
+}, []);
+
     const scrollLockedRef = useRef(false);
     const lockScroll = useCallback(() => {
         if (scrollLockedRef.current) return;
@@ -136,7 +162,11 @@ export default function DomeGallery({
         document.body.classList.remove('dg-scroll-lock');
     }, []);
 
-    const items = useMemo(() => buildItems(images, segments), [images, segments]);
+    const items = useMemo(
+    () => buildItems(apiImages.length ? apiImages : images, segments),
+    [apiImages, images, segments]
+);
+
 
     const applyTransform = (xDeg, yDeg) => {
         const el = sphereRef.current;
